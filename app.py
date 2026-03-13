@@ -18,21 +18,38 @@ if "page" not in st.session_state:
 # 選択肢
 # =========================
 region_options = ["日本", "オーストラリア", "ヨーロッパ", "イギリス", "アメリカ", "マレーシア", "その他"]
-faculty_options = ["工学部", "理学部", "データ", "国際関係学部", "経済", "経営", "商", "医", "建築", "獣医", "歯", "教育", "ファウンデーション", "その他"]
+faculty_options = ["工学部", "理学部", "データ", "国際関係学部", "経済", "経営", "商", "医", "建築", "獣医", "歯", "教育", "ファウンデーション","国際教養", "リベラルアーツ","その他"]
 tuition_options = ["100万以内", "200万以内", "300万以内", "400万以内", "500万以内", "600万以内", "700万以内", "800万以内", "900万以内", "1000万以上"]
 language_options = ["英語", "日本語"]
-ranking_options = ["10位以内", "50位以内", "100位以内", "150位以内", "200位以内", "500位以内", "750位以内", "1000位以内", "1500位以内"]
+ranking_options = ["10位以内", "50位以内", "100位以内", "150位以内", "200位以内", "500位以内", "750位以内", "1000位以内", "1200位以内","1500位以内","1500+"]
 
 # =========================
 # 仮の大学データ
 # =========================
 universities = [
-    {"name": "ブダペスト工科経済大学機械工学科タクミ", "region": "ヨーロッパ", "faculty": "工学部", "tuition": "100万以内", "language": "英語", "ranking": "500位以内"},
+    {"name": "ブダペスト工科経済大学機械工学科タクミ", "region": "ヨーロッパ", "faculty": "工学部", "tuition": "100万以内", "language": "英語", "ranking": "1500位以内"},
     {"name": "近畿大学理工学部機械工学科タクミ", "region": "日本", "faculty": "工学部", "tuition": "200万以内", "language": "日本語", "ranking": "1500位以内"},
     {"name": "大阪公立大学現代システム科学域タクミ", "region": "日本", "faculty": "データ", "tuition": "100万以内", "language": "日本語", "ranking": "1500位以内"},
-    {"name": "セーチェニ大学自動車工学部タクミ", "region": "ヨーロッパ", "faculty": "工学部", "tuition": "100万以内", "language": "英語", "ranking": "1500位以内"},
-    {"name": "マーストリヒト大学CSタクミ", "region": "ヨーロッパ", "faculty": "データ", "tuition": "300万以内", "language": "英語", "ranking": "500位以内"},
-    {"name": "カルロス3世大学ファウンデーションタクミ", "region": "ヨーロッパ", "faculty": "ファウンデーション", "tuition": "300万以内", "language": "英語", "ranking": "50位以内"},
+    {"name": "セーチェニ大学自動車工学部タクミ", "region": "ヨーロッパ", "faculty": "工学部", "tuition": "100万以内", "language": "英語", "ranking": "1500+"},
+    {"name": "マーストリヒト大学CSタクミ", "region": "ヨーロッパ", "faculty": "データ", "tuition": "300万以内", "language": "英語", "ranking": "150位以内"},
+    {"name": "マドリード・カルロス3世大学ファウンデーションタクミ", "region": "ヨーロッパ", "faculty": "ファウンデーション", "tuition": "300万以内", "language": "英語", "ranking": "1000位以内"},
+    {"name": "鹿児島大学歯学部ちひろ", "region": "日本", "faculty": "歯", "tuition": "100万以内", "language": "日本語", "ranking": "1500+"},
+    {"name": "広島大学歯学部ちひろちひろ", "region": "日本", "faculty": "歯", "tuition": "100万以内", "language": "日本語", "ranking": "1000位以内"},
+    {"name": "高知大学医学部ちひろ", "region": "日本", "faculty": "歯", "tuition": "100万以内", "language": "日本語", "ranking": "1500+"},
+    {"name": "神奈川大学歯学部ちひろ", "region": "日本", "faculty": "歯", "tuition": "100万以内", "language": "日本語", "ranking": "1500+"},
+    {"name": "岡山大学歯学部ちひろ", "region": "日本", "faculty": "歯", "tuition": "100万以内", "language": "日本語", "ranking": "1200位以内"},
+    {"name": "上智大学経営学部ななみ", "region": "日本", "faculty": "経営", "tuition": "200万以内", "language": "日本語", "ranking": "1500+"},
+    {"name": "立教大学経営学部ななみ", "region": "日本", "faculty": "経営", "tuition": "200万以内", "language": "日本語", "ranking": "1500+"},
+    {"name": "法政大学経営学部ななみ", "region": "日本", "faculty": "経営", "tuition": "200万以内", "language": "日本語", "ranking": "1500位以内"},
+    {"name": "岡山大学理学部そな", "region": "日本", "faculty": "理学部", "tuition": "100万以内", "language": "日本語", "ranking": "1200位以内"},
+    {"name": "金沢大学理学部そな", "region": "日本", "faculty": "理学部", "tuition": "100万以内", "language": "日本語", "ranking": "1200位以内"},
+    {"name": "鹿児島大学理学部そな", "region": "日本", "faculty": "理学部", "tuition": "100万以内", "language": "日本語", "ranking": "1500+"},
+    {"name": "近畿大学理工学部そな", "region": "日本", "faculty": "工学部""理学部", "tuition": "200万以内", "language": "日本語", "ranking": "1500+"},
+    {"name": "上智大学国際教養学部えいた", "region": "日本", "faculty": "国際教養", "tuition": "200万以内", "language": "英語", "ranking": "1500+"},
+    {"name": "国際基督教大学えいた", "region": "日本", "faculty": "リベラルアーツ", "tuition": "200万以内", "language": "日本語""英語", "ranking": "1500+"},
+    {"name": "同志社大学LAえいた", "region": "日本", "faculty": "リベラルアーツ", "tuition": "200万以内", "language": "日本語""英語", "ranking": "1500+"},
+
+
 ]
 
 # =========================
@@ -55,7 +72,7 @@ if st.session_state.page == "question":
     language = st.selectbox("第4問 学びたい言語は？", language_options)
     language_imp = st.slider("言語の重要度", 1, 5, 3)
 
-    ranking = st.selectbox("第5問 世界ランキングは？", ranking_options)
+    ranking = st.selectbox("第5問 世界ランキングは？ (Times Higher Education2026)", ranking_options)
     ranking_imp = st.slider("ランキングの重要度", 1, 5, 3)
 
     if st.button("診断する"):
